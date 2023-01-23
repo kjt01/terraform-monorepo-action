@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/theappnest/terraform-monorepo-action/compare/v2.1.0...v2.2.0) (2023-01-23)
+
+
+### Features
+
+* resolve issues with running this action on a schedule ([#222](https://github.com/theappnest/terraform-monorepo-action/issues/222)) ([3494273](https://github.com/theappnest/terraform-monorepo-action/commit/3494273d926aeb41b307bc2c02442e94045942d0))
+
 ## [2.1.0](https://github.com/theappnest/terraform-monorepo-action/compare/v2.0.0...v2.1.0) (2022-11-23)
 
 
