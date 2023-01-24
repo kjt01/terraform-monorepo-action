@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/theappnest/terraform-monorepo-action/compare/v2.2.0...v2.3.0) (2023-01-24)
+
+
+### Features
+
+* enable config to determine which basefile names we match ([#224](https://github.com/theappnest/terraform-monorepo-action/issues/224)) ([58c4da9](https://github.com/theappnest/terraform-monorepo-action/commit/58c4da9d52b7243e4eb4031b978801e0274109c8))
+
 ## [2.2.0](https://github.com/theappnest/terraform-monorepo-action/compare/v2.1.0...v2.2.0) (2023-01-23)
 
 
