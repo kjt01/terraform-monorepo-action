@@ -66,6 +66,7 @@ export async function getSha(
 export function getModulePaths<T extends Record<string, unknown>>(
   files: T[] | undefined,
   pathProp: keyof T,
+  monitored: Array<string>,
 ): string[] {
   const result = files?.reduce<string[]>((paths, file) => {
     const { dir, base, ext } = parse(file[pathProp] as string)
@@ -78,7 +79,8 @@ export function getModulePaths<T extends Record<string, unknown>>(
     ) {
       return paths
     }
-    if (ext === '.tf' || base === '.terraform.lock.hcl') {
+    if (monitored.includes(ext) || monitored.includes(base)) {
+      // if (ext === '.tf' || base === '.terraform.lock.hcl') {
       paths.push(dir)
     }
     return paths

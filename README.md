@@ -12,6 +12,7 @@ jobs:
       - uses: theappnest/terraform-monorepo-action@master
         id: modules
         with:
+          monitored: '.tpl, .hcl, .terraform.lock.hcl'
           ignore: |
             */*
             !modules/**
@@ -40,6 +41,7 @@ jobs:
 - `token` (optional) GitHub token. Defaults to secrets.GITHUB_TOKEN.
 - `mode` (optional) Set to `all` to return all modules or `changed` to only return modules that have changes in this PR/commit. Defaults to `changed`.
 - `ignore` (optional) List of module path globs to ignore. Uses gitignore spec.
+- `monitored` (optional) Comma seperated list of file extensions, or filenames to match to determine what is a terraform module. Defaults to .tf
 
 ## Outputs
 

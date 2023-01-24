@@ -3,7 +3,10 @@ import { getReasonPhrase } from 'http-status-codes'
 import { getAllModules } from './allModules'
 import { getModulePaths, getSha } from './utils'
 
-export async function getChangedModules(token: string): Promise<string[]> {
+export async function getChangedModules(
+  token: string,
+  monitored: Array<string>,
+): Promise<string[]> {
   const octokit = getOctokit(token)
 
   const { base, head } = await getSha(token)
@@ -23,8 +26,12 @@ export async function getChangedModules(token: string): Promise<string[]> {
     throw new Error(`HEAD ${response.data.status}`)
   }
 
-  const changedModules = getModulePaths(response.data.files, 'filename')
-  const allModules = await getAllModules(token)
+  const changedModules = getModulePaths(
+    response.data.files,
+    'filename',
+    monitored,
+  )
+  const allModules = await getAllModules(token, monitored)
 
   // filter to exclude deleted modules
   return changedModules.filter((module) => allModules.includes(module))

@@ -8,16 +8,20 @@ async function run(): Promise<void> {
     const token = core.getInput('token', { required: true })
     const mode = core.getInput('mode', { required: true })
     const ignored = core.getInput('ignore')
+    const monitored = core
+      .getInput('monitored')
+      .split(',')
+      .map((item) => item.trim())
 
     let modules: string[]
 
     switch (mode) {
       case 'all':
-        modules = await getAllModules(token)
+        modules = await getAllModules(token, monitored)
         break
 
       case 'changed':
-        modules = await getChangedModules(token)
+        modules = await getChangedModules(token, monitored)
         break
 
       default:

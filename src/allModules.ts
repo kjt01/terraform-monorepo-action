@@ -2,7 +2,10 @@ import { context, getOctokit } from '@actions/github'
 import { getReasonPhrase } from 'http-status-codes'
 import { getModulePaths, getSha } from './utils'
 
-export async function getAllModules(token: string): Promise<string[]> {
+export async function getAllModules(
+  token: string,
+  monitored: Array<string>,
+): Promise<string[]> {
   const octokit = getOctokit(token)
 
   const { head } = await getSha(token)
@@ -18,5 +21,5 @@ export async function getAllModules(token: string): Promise<string[]> {
     throw new Error(getReasonPhrase(response.status))
   }
 
-  return getModulePaths(response.data.tree, 'path')
+  return getModulePaths(response.data.tree, 'path', monitored)
 }

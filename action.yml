@@ -13,9 +13,13 @@ inputs:
   ignore:
     description: List of module path globs to ignore. Uses gitignore spec.
     required: false
+  monitored:
+    description: List of file extensions or base file names to monitor
+    required: false
+    default: '.tf, .terraform.lock.hcl'
 outputs:
   modules:
     description: An array of paths to Terraform modules.
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
