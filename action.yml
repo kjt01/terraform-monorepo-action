@@ -16,7 +16,7 @@ inputs:
   monitored:
     description: List of file extensions or base file names to monitor
     required: false
-    default: '.tf, .terraform.lock.hcl'
+    default: '.tf, .tpl, .yaml, .yml, .terraform.lock.hcl'
 outputs:
   modules:
     description: An array of paths to Terraform modules.
