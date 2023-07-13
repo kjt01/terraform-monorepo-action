@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.1](https://github.com/theappnest/terraform-monorepo-action/compare/v2.3.0...v2.3.1) (2023-07-12)
+
+
+### Bug Fixes
+
+* added tpl file to monitored ([#269](https://github.com/theappnest/terraform-monorepo-action/issues/269)) ([76a1fdc](https://github.com/theappnest/terraform-monorepo-action/commit/76a1fdc939bbc79fab0a9e776df42b780849bec9))
+
 ## [2.3.0](https://github.com/theappnest/terraform-monorepo-action/compare/v2.2.0...v2.3.0) (2023-01-24)
 
 
