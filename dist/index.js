@@ -152,7 +152,8 @@ function run() {
             }
             if (ignored) {
                 const globs = ignored.split('\n').map((item) => item.trim());
-                modules = ignore_1.default().add(globs).filter(modules);
+                const nonEmptyModules = modules.filter(module => module && module !== null && module !== undefined && module !== "");
+                modules = ignore_1.default().add(globs).filter(nonEmptyModules);
             }
             if (modules.length) {
                 core.debug(`Found modules:${modules.map((module) => `\n- ${module}`)}`);
